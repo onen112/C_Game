@@ -25,7 +25,7 @@ public class leetcode150 {
             }
         }
         System.out.println(stack.pop());
-        return 0;
+        return stack.pop();
     }
     public static int fun(int l,int r,String symbol){
         if(symbol.equals("+")){
