@@ -24,7 +24,6 @@ public class leetcode150 {
                 stack.add(fun(l,r,tokens[i]));
             }
         }
-        System.out.println(stack.pop());
         return stack.pop();
     }
     public static int fun(int l,int r,String symbol){
