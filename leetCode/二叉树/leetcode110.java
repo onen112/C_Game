@@ -1,31 +1,29 @@
 /**
- * 题目：https://leetcode-cn.com/problems/same-tree/
- * 相同的二叉树
- *      给两个二叉树的根节点，判断两棵树是否是相同二叉树
+ * 题目：https://leetcode-cn.com/problems/balanced-binary-tree/
+ * 平衡二叉树
+ *      一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1 
  *    
  * 思路：
- *  选择一种遍历方式对两棵树同时遍历
- *  分解为子问题对于每个节点判断它的左右子🌲是否相同
- *  如果都相同返回true
+ *      划分子问题，判断每个节点左右子🌲的最大高度
+ *      若都相差为1返回true，否则返回false
  */
 class Solution {
-    public boolean isSameTree(TreeNode p, TreeNode q) {
-        if(p == null&&q == null){
+    public boolean isBalanced(TreeNode root) {
+        if(root == null){
             return true;
         }
-        return preOrder(p,q);
+        int leftH = maxDepth(root.left);
+        int rightH = maxDepth(root.left);
+        return Math.abs(leftH-rightH) <= 1&&(isBalanced(root.left)&&isBalanced(root.right));
+
     }
-    public static boolean preOrder(TreeNode p,TreeNode q){
-        if((p == null && q != null)||p != null && q == null){
-            return false;
-        }else if(p == null && q == null){
-            return true;
-        }
-        else if(p.val != q.val){
-            return false;
-        }else{
-            //当前节点相同，判断其左右子🌲是否相同
-            return preOrder(p.left,q.left)&&preOrder(p.right,q.right);
-        } 
+    //求树高度
+    public static int maxDepth(TreeNode root) {
+        if(root == null) return 0;
+        int leftHeight = maxDepth(root.left);
+        int rightHeight = maxDepth(root.right);
+
+        return leftHeight  > rightHeight  ?
+                leftHeight +1 : rightHeight +1;
     }
 }
