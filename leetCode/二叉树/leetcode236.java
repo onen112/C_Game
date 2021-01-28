@@ -19,10 +19,10 @@ class Solution {
             return root;
         }
         if(le != null){
-            return le;
+            return left;
         }
         if(ri != null){
-            return ri;
+            return right;
         }
         return null;  
     }
