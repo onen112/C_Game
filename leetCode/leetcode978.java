@@ -2,7 +2,6 @@
  * 题目：https://leetcode-cn.com/problems/longest-turbulent-subarray/
  * 
  * 最长湍流子数组
- * 
  * 思路：
  *      维护一个长度区间，判断这个长度内的子数组是否为满足条件的
  *      如果满足，向后扩张到不满足
