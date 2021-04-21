@@ -41,7 +41,6 @@ class MinStack {
     }
     
     public int min() {
-       
         return st[top-1][1];
     }
 }
